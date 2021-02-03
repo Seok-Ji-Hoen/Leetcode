@@ -1,0 +1,21 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        prev_1 = 1
+        prev_2 = 1
+        if n<2:
+            return 1
+        else:
+            for i in range(2,n+1):
+                curr = prev_1+prev_2
+                prev_1, prev_2 = curr, prev_1
+        return curr
+        
+        
+        
+ ####Fibonach 수열 이용
+ class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n<2:
+            return 1
+        else:
+            return self.climbStairs(n-1)+self.climbStairs(n-2)
