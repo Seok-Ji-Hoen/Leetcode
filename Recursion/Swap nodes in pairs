@@ -1,0 +1,20 @@
+class Solution:
+    def swapPairs(self, head: ListNode) -> ListNode:
+        dummy = ListNode(0)
+        dummyHead = dummy
+        def helper(dummy,head):
+            if head==None:
+                return None
+            elif head.next==None:
+                dummy.next = ListNode(head.val)
+                dummy = dummy.next
+            else:
+                prev_val = head.val
+                curr_val = head.next.val
+                dummy.next = ListNode(curr_val)
+                dummy = dummy.next
+                dummy.next = ListNode(prev_val)
+                dummy = dummy.next
+                helper(dummy,head.next.next)
+        helper(dummy,head)
+        return dummyHead.next
