@@ -1,0 +1,28 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        n = int(n)
+        if n==0:
+            return 1
+            
+        if n ==1:
+            return x
+            
+        if n==-1:
+            return 1/x
+        
+            
+        if n & 1:
+            forward, backward = self.myPow(x,(n-1)/2) , self.myPow(x,(n+1)/2)
+            return forward*backward
+        else:
+            forward, backward = self.myPow(x,n/2),self.myPow(x,n/2)
+            return forward*backward
+ 
+ class Solution:
+      def myPow(self, x,n):
+          if n<0:
+              return (1/x)*myPow(x,n+1)
+          elif n==0:
+              return 1
+          else:
+              return x*myPow(x,n-1)
