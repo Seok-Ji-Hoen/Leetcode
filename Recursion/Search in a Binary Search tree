@@ -1,0 +1,10 @@
+class Solution:
+    def searchBST(self, root: TreeNode, val: int) -> TreeNode:
+        if root==None or root.val == val:
+            return root
+        
+        else:
+            return self.searchBST(root.left,val) if val<root.val else self.searchBST(root.right,val)
+ 
+ 
+ ##### binary tree에서 node의 left에 위치한 값은 node의 값보다 작고, node의 right에 위치한 값은 node의 값보다 크다.
