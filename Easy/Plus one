@@ -1,0 +1,23 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        
+        result=0
+        
+        for i in digits:
+            result = 10*result + i
+        
+        result += 1
+        
+        word = str(result)
+        
+        p = []
+        
+        for i in word:
+            p.append(int(i))
+        
+        
+        if len(digits)>len(p):
+            return [0]*(len(digits)-len(p))+p
+        
+        else:
+            return p
