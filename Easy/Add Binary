@@ -1,0 +1,41 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+         
+        num = int(a) + int(b)
+        
+        if num==0:
+            return '0'
+        
+        p=0
+        
+        tenth = 0
+        
+        while num>0:
+            num, tmp = num//10, num%10
+            
+            tenth = tenth + tmp*2**p
+            
+            p+=1
+            
+        
+        n = 0
+        
+        result = ''
+        
+        while tenth>0:
+            
+            tenth, tmp = tenth//2, tenth%2
+            
+            
+            result = str(tmp) + result
+            
+        return result
+        
+ ##solution
+ class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        
+        
+        num = int(a,2) + int(b,2)
+        
+        return format(num,'b')
