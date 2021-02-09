@@ -1,0 +1,46 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        
+        def helper(n):
+            if n==1:
+                return '1'
+            else:
+                result=''
+                tmp=0
+                for i in range(len(helper(n-1))):
+                    if i+1<len(helper(n-1)) and helper(n-1)[i]==helper(n-1)[i+1]:
+                        tmp+=1
+                    
+                    else:
+                        tmp+=1
+                        result = result+str(tmp)+helper(n-1)[i]
+                        tmp=0
+                return result
+            
+        
+        return helper(n)
+        
+        
+        
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if n==1:
+            return '1'
+        
+        s = self.countAndSay(n-1)
+        
+        ret=''
+        cnt=0
+        i=0
+        
+        while i<len(s):
+            if i+1<len(s) and s[i]==s[i+1]:
+                cnt+=1
+            
+            else:
+                cnt+=1
+                ret = ret + str(cnt) + s[i]
+                cnt=0
+            i+=1
+        
+        return ret
