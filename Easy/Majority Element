@@ -1,0 +1,15 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        length = len(nums)/2
+        char = set(nums)
+        for i in char:
+            if nums.count(i)>length:
+                return i
+                
+                
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        nums.sort()
+        return nums[len(nums)//2]
