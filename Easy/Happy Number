@@ -1,0 +1,25 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def cal(n):
+            result = 0
+            while n>=1:
+                n, result = n//10, result + (n%10)**2
+            return result
+        
+        def judge(n):
+            
+            if 1 in output:
+                return True
+            elif n in output:
+                return False
+            
+            else:
+                
+                output.append(n)
+                x = cal(n)
+                return judge(x)
+        
+        
+        output = []
+        
+        return judge(n)
