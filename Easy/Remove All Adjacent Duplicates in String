@@ -1,0 +1,31 @@
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        
+        i = 0
+        
+        
+        while i<len(S):
+            if i+1<len(S)-1 and S[i]==S[i+1]:
+                S=S.replace(S[i]+S[i+1],'')
+                i-=1
+            else:
+                i+=1
+        
+        return S
+                
+                
+                
+####solution
+
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        
+        output = []
+        
+        for ch in S:
+            if output and ch == output[-1]:
+                output.pop()
+            else:
+                output.append(ch)
+        
+        return ''.join(output)
