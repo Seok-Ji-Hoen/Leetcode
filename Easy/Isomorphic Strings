@@ -1,0 +1,23 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        
+        h = {}
+        
+        set_s = set(s)
+        
+        set_t = set(t)
+        
+        if len(set_s)>len(set_t):
+            s, t = t, s
+        
+        for i,j in zip(s,t):
+            
+            
+            if i in h:
+                if h[i]!=j:
+                    return False
+            
+            else:
+                h[i]=j
+        
+        return True
