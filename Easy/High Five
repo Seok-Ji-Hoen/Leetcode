@@ -1,0 +1,43 @@
+class Solution:
+    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+        
+        h = {}
+        
+        items = sorted(items)
+        
+        for i in items:
+            if i[0] not in h:
+                h[i[0]] = [i[1]]
+            else:
+                h[i[0]].append(i[1])
+        
+        output = []
+        
+        for i in h:
+            h[i] = sorted(h[i])
+            
+            output.append([i,(h[i][-1]+h[i][-2]+h[i][-3]+h[i][-4]+h[i][-5])//5])
+        
+        return output
+        
+        
+class Solution:
+    def highFive(self, items: List[List[int]]) -> List[List[int]]:
+        
+        h = {}
+        
+        items = sorted(items)
+        
+        for i in items:
+            if i[0] not in h:
+                h[i[0]] = [i[1]]
+            else:
+                h[i[0]].append(i[1])
+        
+        output = []
+        
+        for i in h:
+            
+            output.append([i,(h[i][-1]+h[i][-2]+h[i][-3]+h[i][-4]+h[i][-5])//5])
+        
+        return output
