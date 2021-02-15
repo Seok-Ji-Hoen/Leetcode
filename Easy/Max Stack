@@ -1,0 +1,57 @@
+class MaxStack:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.__stk=[]
+
+    def push(self, x: int) -> None:
+        self.__stk.append(x)
+
+        
+
+    def pop(self) -> int:
+        x = self.__stk[-1]
+        self.__stk =self.__stk[:-1]
+        return x
+
+    def top(self) -> int:
+        return self.__stk[-1]
+
+    def peekMax(self) -> int:
+        return max(self.__stk)
+
+    def popMax(self) -> int:
+        max_num = max(self.__stk)
+        
+        for i in range(len(self.__stk)-1,-1,-1):
+            if self.__stk[i]==max_num:
+                self.__stk = self.__stk[:i] + self.__stk[i+1:]
+                break
+        return max_num
+        
+        
+class MaxStack(list):
+    def push(self, x):
+        m = max(x, self[-1][1] if self else None)
+        self.append((x, m))
+
+    def pop(self):
+        return list.pop(self)[0]
+
+    def top(self):
+        return self[-1][0]
+
+    def peekMax(self):
+        return self[-1][1]
+
+    def popMax(self):
+        m = self[-1][1]
+        b = []
+        while self[-1][0] != m:
+            b.append(self.pop())
+
+        self.pop()
+        map(self.push, reversed(b))
+        return m
