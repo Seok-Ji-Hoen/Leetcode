@@ -1,0 +1,29 @@
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        
+        if len(nums)<2:
+            return 0
+        
+        M = max(nums)
+        nums_1 = nums.copy()
+        nums_1.remove(M)
+        
+        if M//2>=max(nums_1):
+            return nums.index(M)
+        else:
+            return -1
+            
+ class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        
+        if len(nums)<2:
+            return 0
+        
+        M = max(nums)
+        nums_1 = nums.copy()
+        nums_1.remove(M)
+        
+        if M//2>=max(nums_1):
+            return nums.index(M)
+        else:
+            return -1
