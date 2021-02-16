@@ -1,0 +1,23 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        
+        s = s.strip()
+        
+        array = s.split()
+        
+        array = array[::-1]
+        
+        output = ''
+        
+        for i in array[:-1]:
+            output = output + i + ' '
+        
+        return output + array[-1]
+        
+        
+        
+ ###solution
+ class Solution:
+    def reverseWords(self, s: str) -> str:
+        
+        return ' '.join(reversed(s.split()))
