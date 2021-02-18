@@ -1,0 +1,22 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def cal(n):
+            output = 0
+            while n>0:
+                n, output = n//10, output + (n%10)**2
+            return output
+        
+        h = {}
+        
+        while 1 not in h:
+            
+            output = cal(n)
+            
+            n = output
+            
+            if output in h:
+                return False
+            else:
+                h[output]=1
+        
+        return True
