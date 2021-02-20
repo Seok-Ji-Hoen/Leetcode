@@ -1,0 +1,19 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        
+        output = []
+        
+        uniq = set(nums)
+        
+        h = {}
+        
+        for i in uniq:
+            h[i] = nums.count(i)
+            
+        
+        new_h = sorted(h.items(),key = lambda x : x[1])
+        
+        for i in range(1,k+1):
+            output.append(new_h[-i][0])
+        
+        return output
