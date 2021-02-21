@@ -1,0 +1,25 @@
+class ValidWordAbbr:
+
+    def __init__(self, dictionary: List[str]):
+        
+        self.output = {}
+        
+        for i in dictionary:
+            if len(i)==2:
+                self.output[i]=i
+            else:
+                self.output[i]=(i[0]+str(len(i[1:-1]))+i[-1])
+            
+        
+
+    def isUnique(self, word: str) -> bool:
+        
+        abb_word = word[0]+str(len(word[1:-1]))+word[-1]
+        
+        if word in self.output and list(self.output.values()).count(abb_word)<2:
+            return True
+        
+        elif abb_word in self.output.values():
+            return False
+        else:
+            return True
