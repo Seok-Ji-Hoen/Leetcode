@@ -1,0 +1,28 @@
+class MovingAverage:
+
+    def __init__(self, size: int):
+        """
+        Initialize your data structure here.
+        """
+        self.queue = [None]*size
+        self.head = 0
+        self.size = size
+    
+    def isFull(self):
+        if None in self.queue:
+            return False
+        else:
+            return True
+    
+    def next(self, val: int) -> float:
+        self.queue[self.head] = val
+        self.head = (self.head + 1) % self.size
+        
+        if self.isFull():
+            return sum(self.queue)/self.size
+        else:
+            return sum(self.queue[:self.head])/(self.head)
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
