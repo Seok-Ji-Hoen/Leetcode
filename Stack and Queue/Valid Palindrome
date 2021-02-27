@@ -1,0 +1,10 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        bucket = ['()','[]','{}']
+        
+        while any(x in s for x in bucket):
+            for x in bucket:
+                s = s.replace(x,'')
+                
+        return not s
