@@ -1,0 +1,14 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        
+        s1 = set(ransomNote)
+        
+        s2 = list(ransomNote)
+        
+        for i in s1:
+            
+            if i not in s2 or ransomNote.count(i) > magazine.count(i) :
+                return False
+            
+        
+        return True
