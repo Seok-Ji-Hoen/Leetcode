@@ -1,0 +1,26 @@
+# The guess API is already defined for you.
+# @param num, your guess
+# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+# def guess(num: int) -> int:
+
+class Solution:
+    def guessNumber(self, n: int) -> int:
+        
+        def half(start, end):
+            
+            h = (start+end)//2
+            h1 = (start+end)//2 + 1
+            
+            if guess(h)==0:
+                return h
+            
+            elif guess(h1)==0:
+                return h1
+            
+            elif guess(h) == -1:
+                return half(start, h)
+            
+            elif guess(h) == 1 :
+                return half(h, end)
+        
+        return half(1,n)
