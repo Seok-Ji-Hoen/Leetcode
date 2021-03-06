@@ -1,0 +1,19 @@
+import math
+class Solution:
+    def calculateEntropy(self, input: List[int]) -> float:
+        
+        l = len(input)
+        h = {}
+        
+        s = set(input)
+        
+        for i in s:
+            h[i] = input.count(i)/l
+        
+        
+        output = 0
+        
+        for i in list(h.values()):
+            output = output - i * math.log(i,2)
+        
+        return output
