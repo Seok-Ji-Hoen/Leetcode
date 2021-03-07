@@ -1,0 +1,43 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
+        
+        def helper(root,target,depth=0):
+            if root==None:
+                return 0
+            
+            elif root.val==target:
+                return depth
+            
+            else:
+                return helper(root.left,target,depth+1) + helper(root.right,target,depth+1)
+            
+        def diff(root,num1,num2):
+            
+            if root.left==None and root.right==None:
+                return False
+            elif root.left==None:
+                return diff(root.right,num1,num2)
+            
+            elif root.right==None:
+                return diff(root.left,num1,num2)
+            
+            else:
+                num = [num1,num2]
+                ls = [root.left.val,root.right.val]
+                num, ls = sorted(num), sorted(ls)
+                if num==ls:
+                    return True
+                else:
+                    return diff(root.right,num1,num2) or diff(root.left,num1,num2)
+        
+        if diff(root,x,y):
+            return False
+        
+        else:
+            return helper(root,x) == helper(root,y)
