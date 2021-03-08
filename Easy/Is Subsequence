@@ -1,0 +1,22 @@
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        word1=[]
+        word2=[]
+        
+        for i in s:
+            word1.append(i)
+            
+        for i in t:
+            word2.append(i)
+            
+        output=''
+        
+        for i in word1:
+            if i in word2:
+                idx = word2.index(i)
+                word2 = word2[idx+1:]
+            
+            else:
+                return False
+        
+        return True
