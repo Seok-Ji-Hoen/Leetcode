@@ -1,0 +1,30 @@
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        unit=[]
+        
+        for i in boxTypes:
+            unit.append(i[1])
+        
+        trunk = 0
+        
+        output = 0
+        
+        while trunk<truckSize:
+            M = max(unit)
+            
+            if M==-1:
+                break
+            
+            idx = unit.index(M)
+            
+            if boxTypes[idx][0]<truckSize-trunk:
+                output += boxTypes[idx][0] * boxTypes[idx][1]
+                unit[idx]=-1
+                trunk += boxTypes[idx][0]
+                
+            else:
+                output += (truckSize - trunk) * boxTypes[idx][1]
+                trunk = truckSize
+                
+            
+        return output
