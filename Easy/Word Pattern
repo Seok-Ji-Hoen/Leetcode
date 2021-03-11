@@ -1,0 +1,23 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        
+        s = s.split()
+        
+        h = {}
+        
+        if len(pattern)!=len(s):
+            return False
+        
+        for i in range(len(pattern)):
+            x = pattern[i]
+            if x in h:
+                if h[x] != s[i]:
+                    return False
+            
+            else:
+                if s[i] in h.values():
+                    return False
+                else:
+                    h[x] = s[i]
+        
+        return True
